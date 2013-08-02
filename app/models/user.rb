@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
     return if email.include?(ENV['ADMIN_EMAIL'])
     mailchimp = Gibbon::API.new
     result = mailchimp.lists.subscribe({
-      :id => ENV['MAILCHIMP_LIST_ID'],
+      :id => ENV['9fb4d33cda'],
       :email => {:email => self.email},
       :double_optin => false,
       :update_existing => true,
@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   def remove_user_from_mailchimp
     mailchimp = Gibbon::API.new
     result = mailchimp.lists.unsubscribe({
-      :id => ENV['MAILCHIMP_LIST_ID'],
+      :id => ENV['9fb4d33cda'],
       :email => {:email => self.email},
       :delete_member => true,
       :send_goodbye => false,
